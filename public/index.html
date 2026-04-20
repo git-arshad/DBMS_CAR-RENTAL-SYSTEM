@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Rental</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    button {
+      padding: 8px 14px;
+      margin: 5px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .section {
+      background: white;
+      padding: 15px;
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+    }
+
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+
+</head>
+<body>
+
+<h1>🚗 Car Rental System</h1>
+
+<div class="section">
+  <button onclick="loadCars()">View Cars</button>
+  <button onclick="loadCustomers()">View Customers</button>
+  <button onclick="loadBookings()">View Bookings</button>
+  <button onclick="loadPayments()">View Payments</button>
+</div>
+
+<div class="section">
+  <h2>👤 Add Customer</h2>
+  <input type="text" id="full_name" placeholder="Full Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="text" id="phone" placeholder="Phone">
+  <input type="text" id="license_no" placeholder="License No">
+  <button onclick="addCustomer()">Add</button>
+</div>
+
+<div class="section">
+  <h2>📅 Add Booking</h2>
+  <input id="cust" placeholder="Customer ID">
+  <input id="car" placeholder="Car ID">
+  <input id="pickup" type="date">
+  <input id="return" type="date">
+  <button onclick="addBooking()">Add</button>
+</div>
+
+<div class="section">
+  <h2>💳 Add Payment</h2>
+  <input id="booking_id" placeholder="Booking ID">
+  <input id="method" placeholder="Method (Cash/UPI)">
+  <input id="status" placeholder="Status (Paid/Pending)">
+  <button onclick="addPayment()">Add</button>
+</div>
+
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
