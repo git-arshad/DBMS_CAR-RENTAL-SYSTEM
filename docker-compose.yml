@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    restart: always
+    ports:
+      - "5000:5000" # Maps port 80 on EC2 to port 3000 on the container
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=arshadquresh
+      - DB_NAME=carrental
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=arshadquresh
+      - MYSQL_DATABASE=carrental
+    volumes:
+      - db_data:/var/lib/mysql
+      # This automatically runs your schema.sql when the DB is first created!
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+  db_data:

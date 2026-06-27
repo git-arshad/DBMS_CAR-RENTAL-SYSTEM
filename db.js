@@ -1,10 +1,11 @@
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "arshadquresh",
-  database: "carrental"
+  // Use environment variables provided by Docker, with fallbacks for local non-Docker testing
+  host: process.env.DB_HOST || "db",
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "arshadquresh",
+  database: process.env.DB_NAME || "carrental"
 });
 
 db.connect(err => {
