@@ -23,5 +23,5 @@ jobs:
           script: |
             cd ~/DBMS_CAR-RENTAL-SYSTEM
             git pull origin main
-            docker compose down
-            docker compose up --build -d
+            sudo docker compose down
+            sudo docker compose up --build -d
