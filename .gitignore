@@ -17,7 +17,7 @@ build/
 coverage/
 
 # Database dumps (optional, keep schema separately)
-*.sql
+
 
 # OS-specific files
 .DS_Store
